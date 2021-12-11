@@ -1,0 +1,66 @@
+body.loading-active {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading.active {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #32323d;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+.loading {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+
+.load-wrap {
+    float: left;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #dc143c;
+}
+
+.load-2 .line:nth-last-child(1) {
+    animation: loadingB 1.5s 1s infinite;
+}
+
+.load-2 .line:nth-last-child(2) {
+    animation: loadingB 1.5s 0.5s infinite;
+}
+
+.load-2 .line:nth-last-child(3) {
+    animation: loadingB 1.5s 0s infinite;
+}
+
+@keyframes loadingB {
+    0 {
+        width: 15px;
+    }
+    50% {
+        width: 35px;
+    }
+    100% {
+        width: 15px;
+    }
+}

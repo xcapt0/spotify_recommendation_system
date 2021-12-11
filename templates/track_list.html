@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/like.css">
+{% endblock style %}
+
+{% block content %}
+    <h3>Результаты поиска</h3>
+    {% for track in tracks['items'] %}
+        <div class="track">
+            {% if request.MOBILE %}
+                <iframe src="https://open.spotify.com/embed/track/{{ track['id'] }}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <div class="heart" data-id="{{ track['id'] }}">
+                    <span class="tooltiptext">Получить рекомендации</span>
+                </div>
+            {% else %}
+                <iframe src="https://open.spotify.com/embed/track/{{ track['id'] }}" width="600" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <div class="heart" data-id="{{ track['id'] }}">
+                    <span class="tooltiptext">Получить рекомендации</span>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <div class="navigation">
+        {% if tracks['previous'] %}
+            <a class="icon" href="{{ tracks['previous'] }}">
+                <div class="arrow left"></div>
+            </a>
+        {% else %}
+            <div class="icon">
+                <div class="arrow left"></div>
+            </div>
+        {% endif %}
+
+        {% if tracks['next'] %}
+            <a class="icon" href="{{ tracks['next'] }}">
+                <div class="arrow right"></div>
+            </a>
+        {% else %}
+            <div class="icon">
+                <div class="arrow right"></div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script src="/static/js/like.js"></script>
+{% endblock script %}

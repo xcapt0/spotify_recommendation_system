@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block style %}
+    <link rel="stylesheet" href="/static/css/like.css">
+{% endblock style %}
+
+{% block content %}
+    <h3>Рекомендации</h3>
+    {% for id in track_ids %}
+        <div class="track">
+            {% if request.MOBILE %}
+                <iframe src="https://open.spotify.com/embed/track/{{ id }}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <div class="heart" data-id="{{ id }}">
+                    <span class="tooltiptext">Получить рекомендации</span>
+                </div>
+            {% else %}
+                <iframe src="https://open.spotify.com/embed/track/{{ id }}" width="600" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <div class="heart" data-id="{{ id }}">
+                    <span class="tooltiptext">Получить рекомендации</span>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock content %}
+
+{% block script %}
+    <script src="/static/js/like.js"></script>
+{% endblock script %}

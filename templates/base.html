@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
+    <link rel="stylesheet" href="/static/css/loading.css">
+    <link rel="stylesheet" href="/static/css/search.css">
+    {% block style %} {% endblock style %}
+</head>
+<body class="loading-active">
+    <div class="loading active">
+        <div class="load-wrap">
+            <div class="load-2">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+    <div class="title">
+        <h2>Spotify Recommendation <br>System</h2>
+    </div>
+    <div class="container">
+        <input class="hint--top" aria-label="Нажмите Enter" type="text" placeholder="Напишите название трека">
+        <div class="search"></div>
+    </div>
+    <div class="result">
+        {% block content %} {% endblock content %}
+    </div>
+
+    <script src="/static/js/loading.js"></script>
+    <script src="/static/js/search.js"></script>
+    {% block script %} {% endblock script %}
+</body>
+</html>

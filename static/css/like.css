@@ -1,0 +1,49 @@
+.heart {
+    position: relative;
+    cursor: pointer;
+    height: 65px;
+    width: 65px;
+    background-image: url('https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 2900%;
+    margin-left: 10px;
+}
+
+.heart:hover {
+    background-position: right;
+}
+
+.heart .tooltiptext {
+    font-family: Calibri, sans-serif;
+    visibility: hidden;
+    width: 120px;
+    background-color: #2379fb;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+}
+
+.heart:hover .tooltiptext {
+    width: 145px;
+    bottom: 100%;
+    left: 35%;
+    margin-left: -60px;
+    visibility: visible;
+}
+
+.is_animating {
+    animation: heart-burst .8s steps(28) 1;
+}
+
+@keyframes heart-burst {
+    from {
+        background-position: left;
+    }
+    to {
+        background-position: right;
+    }
+}
