@@ -1,4 +1,5 @@
 FROM python:3.8.1
+RUN mkdir /app
 COPY . /app
 WORKDIR /app
 ENV LISTEN_PORT=5000
