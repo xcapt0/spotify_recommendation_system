@@ -2,6 +2,12 @@
 
 from flask import Flask, render_template, request
 from flask_mobility import Mobility
+import yaml
+import sys
+import os
+
+path = os.path.dirname(sys.path[0])
+sys.path.insert(0, os.path.join(path, 'api'))
 
 from api.spotify import SpotifyAPI
 
@@ -10,10 +16,11 @@ app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 Mobility(app)
 
+config = yaml.safe_load(open('config.yml'))
 spotify = SpotifyAPI(
-    client_id='CLIENT_ID',
-    client_secret='CLIENT_SECRET',
-    refresh_token='REFRESH_TOKEN'
+    client_id=config['client_id'],
+    client_secret=config['client_secret'],
+    refresh_token=config['refresh_token']
 )
 
 

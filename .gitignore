@@ -1,1 +1,5 @@
 /.idea
+/venv
+/test.json
+/__pycache__
+/api/__pycache__

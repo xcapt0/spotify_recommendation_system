@@ -7,8 +7,8 @@ def prepare_data(liked_track, related_tracks):
     preprocessor = joblib.load('models/preprocessor.joblib')
     liked_track = obtain_track_details(liked_track)
     related_tracks = obtain_track_details(related_tracks)
-    df_liked_track = preprocess_df(preprocessor, to_df(liked_track))
-    df_related_tracks = preprocess_df(preprocessor, to_df(related_tracks))
+    df_liked_track = preprocess_df(preprocessor, pd.DataFrame(liked_track))
+    df_related_tracks = preprocess_df(preprocessor, pd.DataFrame(related_tracks))
     return df_liked_track, df_related_tracks
 
 
@@ -41,10 +41,6 @@ def grab_genre(track_genres):
                 return genre
 
     return 'hip hop'
-
-
-def to_df(tracks):
-    return pd.DataFrame(tracks)
 
 
 # clearing data for model
