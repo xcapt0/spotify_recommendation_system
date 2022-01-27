@@ -20,7 +20,7 @@ docker build -t spotify .
 > 3. Follow the instructions https://developer.spotify.com/documentation/general/guides/authorization/code-flow/ to authorize your app
 > 4. Paste `client_id`, `client_secret` and `refresh_token` into `config.yml` file
 
-To run the app paste follow command:
+To run an app paste the follow command:
 
 ```sh
 docker run --rm -p 5000:5000 -d spotify
