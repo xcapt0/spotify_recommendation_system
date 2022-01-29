@@ -11,6 +11,14 @@ git pull https://github.com/xcapt0/spotify_recommendation_system.git
 docker build -t spotify .
 ```
 
+## 🔍 Tests
+
+Run tests with the following command:
+
+```sh
+python tests/test_spotify.py
+```
+
 ## 👨‍💻 Usage
 
 **Note**
